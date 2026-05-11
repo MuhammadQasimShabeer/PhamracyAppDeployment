@@ -9,5 +9,18 @@ DB_PASSWORD=${DB_PASSWORD:-odoo}
 DB_NAME=${DB_NAME:-odoo}
 ADMIN_PASSWD=${ADMIN_PASSWD:-admin}
 
-# Run Odoo with environment variables
-exec odoo server --addons-path=/mnt/extra-addons --db_host=$DB_HOST --db_port=$DB_PORT --db_user=$DB_USER --db_password=$DB_PASSWORD --db_name=$DB_NAME --xmlrpc_port=8069 --admin_passwd=$ADMIN_PASSWD
+# Generate Odoo config file with environment variables
+cat > /mnt/odoo.conf << EOF
+[options]
+addons_path = /mnt/extra-addons,/usr/lib/python3/dist-packages/odoo/addons
+xmlrpc_port = 8069
+db_host = $DB_HOST
+db_port = $DB_PORT
+db_user = $DB_USER
+db_password = $DB_PASSWORD
+db_name = $DB_NAME
+admin_passwd = $ADMIN_PASSWD
+EOF
+
+# Run Odoo with the generated config
+exec odoo server --config /mnt/odoo.conf
