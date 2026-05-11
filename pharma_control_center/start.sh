@@ -10,7 +10,7 @@ DB_NAME=${DB_NAME:-odoo}
 ADMIN_PASSWD=${ADMIN_PASSWD:-admin}
 
 # Generate Odoo config file with environment variables
-cat > /mnt/odoo.conf << EOF
+cat > /tmp/odoo.conf << EOF
 [options]
 addons_path = /mnt/extra-addons,/usr/lib/python3/dist-packages/odoo/addons
 xmlrpc_port = 8069
@@ -23,4 +23,4 @@ admin_passwd = $ADMIN_PASSWD
 EOF
 
 # Run Odoo with the generated config
-exec odoo server --config /mnt/odoo.conf
+exec odoo server --config /tmp/odoo.conf
