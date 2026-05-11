@@ -10,4 +10,4 @@ DB_NAME=${DB_NAME:-odoo}
 ADMIN_PASSWD=${ADMIN_PASSWD:-admin}
 
 # Run Odoo with environment variables
-exec odoo server --addons-path=/mnt/extra-addons --db_host=$DB_HOST --db_port=$DB_PORT --db_user=$DB_USER --db_password=$DB_PASSWORD --database=$DB_NAME --xmlrpc_port=8069 --admin_passwd=$ADMIN_PASSWD
+exec odoo server --addons-path=/mnt/extra-addons --db_host=$DB_HOST --db_port=$DB_PORT --db_user=$DB_USER --db_password=$DB_PASSWORD --database=$DB_NAME --xmlrpc-port=8069 --admin-password=$ADMIN_PASSWD
