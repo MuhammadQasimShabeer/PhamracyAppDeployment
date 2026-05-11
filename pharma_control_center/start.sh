@@ -20,7 +20,8 @@ db_user = $DB_USER
 db_password = $DB_PASSWORD
 db_name = $DB_NAME
 admin_passwd = $ADMIN_PASSWD
+without_demo = False
 EOF
 
-# Run Odoo with the generated config
-exec odoo server --config /tmp/odoo.conf
+# Run Odoo server with initialization of base and pharma_control_center modules
+exec odoo server --config /tmp/odoo.conf --init=base,pharma_control_center
