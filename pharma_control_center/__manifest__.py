@@ -38,6 +38,9 @@ Central system for pharmacy operations:
         'views/manager_analytics_views.xml',
         'views/privacy_policy_views.xml',
     ],
+    'test': [
+        'test/test_pharma_control_center.py',
+    ],
     'installable': True,
     'application': True,
     'license': 'LGPL-3',
